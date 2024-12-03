@@ -6,7 +6,10 @@
 #    By: ciso <ciso@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/03 17:48:07 by ciso              #+#    #+#              #
-#    Updated: 2024/12/03 17:48:08 by ciso             ###   ########.fr        #
+#    Updated: 2024/12/03 17:54:12 by ciso             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libftprinft.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
