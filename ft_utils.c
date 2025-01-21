@@ -3,7 +3,7 @@
 void ft_putcharc(char c, int *count) 
 {
     write(1, &c, 1);
-    *count++;
+    (*count)++;
 }
 
 void	ft_putnbrc(int n, int *count)
@@ -43,14 +43,15 @@ void	ft_putstrc(char *s, int *count)
 	{
 		write(1, &s[i], 1);
 		i++;
+		(*count) ++;
 	}
 }
 
 void	ft_putunsigned(unsigned int i, int *count)
 {
-    if (n >= 10)
-        ft_putunsigned(n / 10, count);
-    ft_putchar((n % 10) + '0', count);
+    if (i >= 10)
+        ft_putunsigned(i / 10, count);
+    ft_putcharc((i % 10) + '0', count);
 }
 
 void ft_puthex(unsigned int n, int uppercase, int *count)
@@ -63,5 +64,5 @@ void ft_puthex(unsigned int n, int uppercase, int *count)
         base = "0123456789abcdef";
     if (n >= 16)
         ft_puthex(n / 16, uppercase, count);
-    ft_putchar(base[n % 16], count);
+    ft_putcharc(base[n % 16], count);
 }
