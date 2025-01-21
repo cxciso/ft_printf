@@ -6,11 +6,11 @@
 #    By: ciso <ciso@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/03 17:48:07 by ciso              #+#    #+#              #
-#    Updated: 2024/12/03 17:54:12 by ciso             ###   ########.fr        #
+#    Updated: 2025/01/21 20:10:35 by ciso             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprinft.a
+NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -20,7 +20,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)

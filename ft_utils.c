@@ -46,7 +46,7 @@ void	ft_putstrc(char *s, int *count)
 	}
 }
 
-ft_putunsigned(unsigned int i, int *count)
+void	ft_putunsigned(unsigned int i, int *count)
 {
     if (n >= 10)
         ft_putunsigned(n / 10, count);

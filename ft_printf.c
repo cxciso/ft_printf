@@ -6,7 +6,7 @@
 /*   By: ciso <ciso@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:47:46 by ciso              #+#    #+#             */
-/*   Updated: 2024/12/03 17:51:20 by ciso             ###   ########.fr       */
+/*   Updated: 2025/01/21 20:14:18 by ciso             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void handle_specrifier(char c, va_list args, int *count)
         ft_puthex(va_arg(args, unsigned int), 1, count);
 }
 
-void ft_printf(const char   *format, ...)
+int ft_printf(const char   *format, ...)
 {
     va_list args;
     int i; 
@@ -48,9 +48,9 @@ void ft_printf(const char   *format, ...)
             i++;
         }      
         else
-            ft_putchar(format[i], &count);
+            ft_putcharc(format[i], &count);
             i++; 
     }
-        ve_ends(args);
+        va_end(args);
         return(count);   
 }
