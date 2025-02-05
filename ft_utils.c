@@ -6,7 +6,7 @@
 /*   By: ciso <ciso@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:13:54 by ciso              #+#    #+#             */
-/*   Updated: 2025/02/04 18:53:23 by ciso             ###   ########.fr       */
+/*   Updated: 2025/02/05 17:42:58 by ciso             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	ft_putstrc(char *s, int *count)
 
 	i = 0;
 	if (s == (NULL))
-		ft_putstrc("(null)", count);
-	return ;
+		s = "(null)";
 	while (s[i])
 	{
 		write(1, &s[i], 1);
@@ -36,11 +35,29 @@ void	ft_putstrc(char *s, int *count)
 
 void	ft_putptr(void *ptr, int *count)
 {
-	ft_putstrc("0x", count);
-	if (ptr != NULL)
+	unsigned long	addr;
+	char			buffer[17];
+	int				i;
+
+	i = 16;
+	addr = (unsigned long)ptr;
+	if (!addr)
 	{
-		ft_putcharc('0', count);
+		ft_putstrc("0x0", count);
 		return ;
 	}
-	ft_puthex((unsigned int)ptr, 0, count);
+	ft_putstrc("0x", count);
+	while (i > 0)
+	{
+		buffer[i] = '0';
+		i--;
+	}
+	buffer[16] = '\0';
+	i = 15;
+	while (addr > 0)
+	{
+		buffer[i--] = "0123456789abcdef"[addr % 16];
+		addr /= 16;
+	}
+	ft_putstrc(&buffer[i + 1], count);
 }
